@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Todo App</title>
+  <link rel="stylesheet" href="style.css" />
+
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Todo<span>AppHCMUS</span></h1>
+    </header>
+
+
+    <!-- Auth section -->
+    <section id="login-section" class="card">
+      <h2 id="auth-title">Đăng nhập</h2>
+      <div class="form-group">
+        <input type="email" id="email" placeholder="Email" autocomplete="email" />
+        <input type="password" id="password" placeholder="Mật khẩu" autocomplete="current-password" />
+        <input type="password" id="confirm-password" placeholder="Xác nhận mật khẩu" autocomplete="new-password" class="hidden" />
+
+        <div class="button-row" id="btn-row-login">
+          <button id="btn-login" class="primary">Đăng nhập</button>
+          <button id="btn-to-register" class="secondary">Đăng ký</button>
+        </div>
+        <div class="button-row hidden" id="btn-row-register">
+          <button id="btn-register" class="primary">Đăng ký</button>
+          <button id="btn-to-login" class="secondary">Quay lại</button>
+        </div>
+      </div>
+      <p id="login-error" class="error"></p>
+    </section>
+
+    <!-- Main app -->
+    <section id="app-section" class="card hidden">
+      <div class="user-bar">
+        <div>
+          <div class="user-label">Xin chào</div>
+          <div id="user-info" class="user-name">—</div>
+        </div>
+        <button id="btn-logout" class="ghost-danger">Đăng xuất</button>
+      </div>
+
+      <div class="add-row">
+        <input type="text" id="new-task" placeholder="Thêm việc cần làm..." maxlength="200" />
+        <button id="btn-add" class="primary">Thêm</button>
+      </div>
+
+      <div class="tabs">
+        <button class="tab active" data-filter="all">Tất cả</button>
+        <button class="tab" data-filter="active">Chưa xong</button>
+        <button class="tab" data-filter="done">Đã xong</button>
+      </div>
+
+      <ul id="task-list" class="task-list"></ul>
+      <p id="empty-msg" class="empty hidden">Chưa có việc nào, hãy thêm việc đầu tiên!</p>
+    </section>
+
+  </div>
+
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
